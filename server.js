@@ -4,8 +4,12 @@ require('dotenv').config()
 let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: process.env.USER,
-        pass: process.env.PASSWORD,
+        type: 'OAuth2',
+        user: process.env.CLIENT_USER,
+        clientId: process.env.CLIENT_ID,
+        clientSecret: process.env.CLIENT_SECRET,
+        refreshToken: process.env.REFRESH_TOKEN,
+        accessToken: process.env.ACCESS_TOKEN,
     },
 })
 
@@ -13,7 +17,7 @@ const mailOptions = {
     from: 'smaple@email.com',
     to: 'to@email.com',
     subject: 'Test email',
-    html: '<p>Working</p>',
+    text: 'Working',
 }
 
 transporter.sendMail(mailOptions, (err, info) => {
