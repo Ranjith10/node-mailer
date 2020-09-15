@@ -9,13 +9,12 @@ let transporter = nodemailer.createTransport({
         clientId: process.env.CLIENT_ID,
         clientSecret: process.env.CLIENT_SECRET,
         refreshToken: process.env.REFRESH_TOKEN,
-        accessToken: process.env.ACCESS_TOKEN,
     },
 })
 
 const mailOptions = {
-    from: 'smaple@email.com',
-    to: 'to@email.com',
+    from: 'sample@gmail.com',
+    to: 'sample.reciever@gmail.com',
     subject: 'Test email',
     text: 'Working',
 }
